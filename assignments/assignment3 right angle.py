@@ -10,4 +10,4 @@ c=int(input("hypotenuse side:"))
 if pyth(a,b,c)== True:
     print("is right angled triangle")
 elif pyth(a,b,c)== False:
-    print("not a right angled tria
+    print("not a right angled triangle")
