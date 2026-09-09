@@ -15,3 +15,10 @@ bourdain=np.array([[1,2,0],[6,7,7], [0,5,5]])
 print(np.sum(bourdain))
 print(np.sum(bourdain, axis=0))
 print(np.sum(bourdain, axis=1))
+
+print(marks>50)
+print(marks<50)
+print(marks==30)
+#always: considers start point omitting the endpoint
+print(marks[0:5:2])
+print(marks[-6:-1:2])
