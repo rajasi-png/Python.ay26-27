@@ -1,0 +1,65 @@
+import pandas as pd
+
+# Creating a sample dataset
+data = {
+    'Name': ['Priya', 'Rahul', 'Amit', 'Sneha', 'Priya'],
+    'Marks': [85, 90, None, 75, 85],
+    'City': ['Pune', 'Mumbai', 'Delhi', None, 'Pune']
+}
+
+# Converting data into DataFrame
+df = pd.DataFrame(data)
+
+print("Original Dataset:")
+print(df)
+
+# Display first five rows
+print("\nFirst Five Rows:")
+print(df.head())
+
+# Display dataset information
+print("\nDataset Information:")
+df.info()
+
+# Statistical description
+print("\nStatistical Description:")
+print(df.describe())
+
+# Checking missing values
+print("\nMissing Values:")
+print(df.isnull().sum())
+
+# Filling missing marks with mean
+df['Marks'] = df['Marks'].fillna(df['Marks'].mean())
+
+# Filling missing cities with mode
+df['City'] = df['City'].fillna(df['City'].mode()[0])
+
+print("\nAfter Handling Missing Values:")
+print(df)
+
+# Checking duplicate records
+print("\nDuplicate Records:")
+print(df.duplicated())
+
+# Removing duplicate records
+df = df.drop_duplicates()
+
+print("\nAfter Removing Duplicates:")
+print(df)
+
+# Dropping an irrelevant column (if required)
+# df = df.drop('City', axis=1)
+
+# Selecting students having marks greater than 80
+print("\nStudents Scoring More Than 80:")
+print(df.loc[df['Marks'] > 80])
+
+# Final cleaned dataset
+print("\nFinal Cleaned Dataset:")
+print(df)
+
+# Saving cleaned data into CSV file
+df.to_csv('cleaned_data.csv', index=False)
+
+print("\nCleaned dataset saved successfully!")
